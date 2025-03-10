@@ -159,19 +159,23 @@ body {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
-  .ribbon-inner {
+/*
+  .red-news-ribbon-section-inner {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
-  .red-ribbon h2 {
+*/
+
+  .red-news-ribbon-section h2 {
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .red-news-ribbon-section p {
     margin-right: auto;
     font-weight: 700;
-  }
-  .red-ribbon p {
-    margin-right: auto;
-    font-weight: 600;
+    font-size: 1.4rem;
   }
 
 
@@ -232,15 +236,7 @@ body {
     color: var(--color-pink);
 }
 
-.footer-copyright {
-    font-size: 1.33rem; /* 16pt */
-    color: var(--color-light-navy);
-}
 
-.footer-legal {
-    font-size: 1.17rem; /* 14pt */
-    color: var(--color-light-navy);
-}
 
 .link_box_weitere-informationen {
     font-size: 1.25rem; /* Reduced from 2rem */
@@ -400,6 +396,7 @@ body {
     gap: var(--space-lg); /* Increased spacing between nav items */
 }
 
+
 .main-nav a {
     color: white;
     font-weight: 400;
@@ -497,88 +494,184 @@ body {
 
  
 /* Footer */
-.site-footer {
-    background-color: var(--color-navy);
-    background-image: linear-gradient(to bottom, var(--color-navy), #001a4e); /* Subtle gradient */
-    color: var(--color-light-navy);
-    padding: var(--space-xl) 0 var(--space-lg); /* Increased top padding */
-    margin-top: auto;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05); /* Subtle shadow at the top */
-}
+/* -- Footer Top Section Title -- */
+.footer-top {
+    /* If you already have a background-color: var(--color-navy); 
+       keep it here */
+    padding-bottom: 6rem; /* or 8rem for more space */
+  }
 
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--space-xl); /* Increased gap */
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 250px;
-}
-
-.footer-section h3 {
-    color: var(--color-white);
-    margin-bottom: var(--space-md); /* Increased from sm to md */
-    font-size: 1.3rem; /* Increased from 1.2rem */
-    font-weight: 700;
-    letter-spacing: 0.5px;
+.footer-top-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+    color: #808fad;
     text-transform: uppercase;
-    position: relative;
-    padding-bottom: var(--space-xs);
-}
+    padding: 4rem 0; /* 3rem on top and bottom */
+    text-align: center;
+    margin: 0 auto;
+  }
 
-.footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-red);
-}
-
-.footer-links {
+  /* Footer Top: Search & Bubbles Container */
+.footer-top-search {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-sm); /* Increased from xs to sm */
-}
-
-.footer-links a {
-    color: var(--color-light-navy);
-    transition: all 0.3s ease;
-    position: relative;
-    padding-left: var(--space-sm);
-    display: inline-block;
-}
-
-.footer-links a::before {
-    content: '›'; /* Add arrow before links */
-    position: absolute;
-    left: 0;
-    color: var(--color-red);
-    transition: transform 0.3s ease;
-}
-
-.footer-links a:hover {
+    flex-direction: column; /* stack search form and bubbles */
+    align-items: center;    /* center them horizontally */
+    margin-top: 0rem;       /* extra space above the search form */
+  }
+  
+  /* Search Form */
+  .footer-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;       /* space between input and button */
+    margin-bottom: 1.5rem; /* space below form before bubbles */
+  }
+  
+  /* Search Input */
+  .footer-search-input {
+    width: 300px;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;  /* fully rounded */
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background-color: var(--color-white);
+    color: var(--color-navy);
+  }
+  
+  /* Search Button: navy background, white border, white text */
+.footer-search-button {
+    background-color: var(--color-navy);
+    border: 1px solid var(--color-white);
     color: var(--color-white);
-    transform: translateX(3px); /* Slight movement on hover */
-}
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .footer-search-button:hover {
+    background-color: var(--color-white); /* invert on hover if desired */
+    color: var(--color-navy);
+    transform: translateY(-2px);
+  }
+  
+  /* Bubbles: navy background, white border, white text */
+  .footer-bubble {
+    background-color: var(--color-navy);
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    white-space: nowrap;
+  }
 
-.footer-links a:hover::before {
-    transform: translateX(3px);
-}
+  /* Individual Bubble */
+  .footer-bubble {
+    background-color: var(--color-light-gray);
+    color: var(--color-navy);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem; /* ~14px if base is 16px */
+    font-weight: 400;
+    white-space: nowrap; /* keep each bubble text on one line */
+  }
 
-.footer-bottom {
-    margin-top: var(--space-xl); /* Increased from lg to xl */
-    padding-top: var(--space-md);
+  /* -- Footer Sitemap Section -- */
+  .footer-sitemap {
+    padding: var(--space-lg) 0;
+  }
+  
+  .footer-sitemap .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    justify-content: space-between;
+  }
+  
+  .sitemap-column {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .sitemap-column h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700; /* Bold for level 1 headings */
+    color: var(--color-navy);
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .sitemap-subcolumn {
+    margin-bottom: var(--space-md);
+  }
+  
+  .sitemap-subcolumn h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700; /* Bold for subcategory headings */
+    color: var(--color-navy);
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+  }
+  
+  /* Sitemap links: Level 2 (sub-items) and Level 3 (individual links) */
+  .footer-sitemap a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400; /* Normal weight */
+    color: var(--color-navy);
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    margin-bottom: var(--space-xs);
+    transition: color 0.3s ease;
+  }
+  
+  .footer-sitemap a:hover {
+    color: var(--red);
+  }
+  
+  /* -- Legal Footer Section -- */
+  .footer-legal {
+    padding: var(--space-md) 0;
     border-top: 1px solid var(--color-medium-navy);
+  }
+  
+  .footer-legal .container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
-    gap: var(--space-md);
-}
+  }
+  
+  .footer-legal-left p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-navy);
+    margin: 0;
+  }
+  
+  .footer-legal-right a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-navy);
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: var(--space-sm);
+    transition: color 0.3s ease;
+  }
+  
+  .footer-legal-right a:hover {
+    color: var(--red);
+  }
 
 /* Hero Section */
 .hero {
@@ -876,12 +969,14 @@ body {
   
   /* font of level 1 elements */
   .main-nav ul li a{
-   text-decoration: none;
+    text-decoration: none;
    font-family: 'Open Sans', sans-serif;
-   font-size: 1rem;  /* 16px base */
+   font-size: 0.95rem;  /* 16px base */
    font-weight: 600;
    color: white;
-      }
+   
+   padding-left: 0;
+}
 
 .main-nav ul {
     list-style: none;
@@ -897,6 +992,7 @@ body {
   }
   
   /* Dropdown Menu: Hide all submenus by default */
+  /* font and colours for all submenu items */
   .main-nav ul ul {
     display: none;
     position: absolute;
@@ -907,6 +1003,7 @@ body {
     min-width: 150px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 100;
+    text-align: left;
   }
   
   /* Show dropdown on hover or focus */
@@ -936,21 +1033,22 @@ body {
     font-size: 0.8rem;  /* 16px base */
     font-weight: 300;
     color: #ffffff;
+    text-align: center;
     text-transform: none;
     text-decoration: none;
     padding: 0.5rem 0.75rem;
     position: relative;
   }
   
-  /* Level 2 Navigation: Bold and uppercase if they have subitems, always navy blue */
-  .nav-level-2 {
+/* Level 2 Navigation: Bold and uppercase if they have subitems, always navy blue */
+.nav-level-2 {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    color: #001e5b; /* Changed from white to navy */
+    color: #001e5b; /* Navy blue */
     padding: 0.5rem 0.75rem;
     text-transform: none; /* default natural case */
-  }
+}
 
   .main-nav ul ul li a:hover {
     color: #001e5b; 
@@ -961,18 +1059,17 @@ body {
   /* For level 2 items that have submenus, enforce uppercase */
   .nav-level-2.has-submenu {
     text-transform: uppercase;
-    /* color remains navy */
-  }
+}
   
-  /* Level 3 Navigation: Uppercase, normal weight, navy blue */
-  .nav-level-3 {
+/* Level 3 Navigation: Uppercase, normal weight, navy blue */
+.nav-level-3 {
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     font-weight: 400; /* normal weight */
-    color: #001e5b
+    color: #001e5b; /* Navy blue – ensure the semicolon is present */
     text-transform: uppercase;
     padding: 0.5rem 0.75rem;
-  }
+}
   
   /* Position Level 3 submenus to appear to the right of their parent Level 2 item */
   .main-nav ul ul ul {
