@@ -1,0 +1,19 @@
+Instructions for New Session on Startpage Layout Feedback:
+
+"I want to continue our work on the Presserecht website by providing feedback on the startpage layout. We've already improved the header and footer design, but now I'd like to focus on the main content areas of the homepage.
+
+The project is located at /Users/mathieukuttler/Desktop/presserecht_komplett_with_claude and contains the following key files:
+- index.html (main homepage)
+- assets/css/styles.css (main stylesheet)
+- assets/js/main.js (JavaScript functionality)
+
+Specific areas I'd like to focus on:
+1. Hero section layout and visual hierarchy
+2. Featured items grid spacing and alignment
+3. Contact section design and usability
+4. Overall content flow and readability
+5. Mobile responsiveness of the main content areas
+
+I'd like to start by reviewing the current implementation, then discuss potential improvements for each section. After our discussion, I want you to implement the agreed-upon changes.
+
+Please begin by examining the current index.html and styles.css files to understand the existing layout structure, then provide your analysis and suggestions for improvement."

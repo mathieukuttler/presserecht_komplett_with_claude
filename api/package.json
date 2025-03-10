@@ -1,0 +1,15 @@
+{
+  "name": "presserecht-openai-integration",
+  "version": "1.0.0",
+  "description": "OpenAI API integration for Presserecht website",
+  "main": "analyze-images.js",
+  "scripts": {
+    "analyze": "node analyze-images.js"
+  },
+  "dependencies": {
+    "openai": "^4.0.0",
+    "dotenv": "^16.0.0",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
