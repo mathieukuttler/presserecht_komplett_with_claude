@@ -34,6 +34,10 @@
     --space-xl: 3rem;     /* 48px */
 }
 
+/* setting base font size */
+html {
+    font-size: 16px;
+}
 
   
 /* Base Styles */
@@ -47,6 +51,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 
 .container_old {
     width: 100%;
@@ -876,4 +881,78 @@ body {
   
   .main-nav ul ul li a:hover {
     background-color: var(--red);
+  }
+
+  /* Base styles for main navigation links */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg); /* Using your existing spacing variable */
+  }
+  
+  /* Dropdown container (hide by default) */
+  .main-nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: var(--color-white);
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  
+  /* Ensure parent li is relatively positioned */
+  .main-nav ul li {
+    position: relative;
+  }
+  
+  /* Show dropdown on hover or focus */
+  .main-nav ul li:hover > ul,
+  .main-nav ul li:focus-within > ul {
+    display: block;
+  }
+  
+  /* Navigation Level 1: Top-level items (e.g., Über uns, Aktuelle Meldungen, etc.) */
+  .nav-level-1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;      /* 16px base */
+    font-weight: 700;     /* Bold */
+    color: var(--color-white);
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Navigation Level 2: Second-level items (e.g., Gesetze, Entscheidungen, etc.) */
+  .nav-level-2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;     /* Bold */
+    color: var(--color-navy); /* Navy blue - defined in your variables (e.g., #001e5b) */
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Navigation Level 3: Third-level items (e.g., Presse under Gesetze) */
+  .nav-level-3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;     /* Normal */
+    color: var(--color-navy);
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Dropdown item styling */
+  .main-nav ul ul li a {
+    display: block;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  
+  /* Hover state for dropdown items */
+  .main-nav ul ul li a:hover {
+    background-color: var(--color-light-gray);
+    color: var(--color-white);
+    transition: background-color 0.3s ease;
   }
