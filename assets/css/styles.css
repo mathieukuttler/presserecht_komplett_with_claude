@@ -37,6 +37,7 @@
 /* setting base font size */
 html {
     font-size: 16px;
+    text-transform: none;
 }
 
   
@@ -89,11 +90,12 @@ body {
     margin-top: 0.6rem;
     margin-left:0px;
     margin-right: 1rem;
+    max-width: 10rem;
     height: 60px; /* Increased from 60px to 80px */
   }
 
   .search-button {
-    background-color: var(--color-navy);
+    background-color: #405785;
     color: white;
     border: solid white;
     padding: 0.5rem 1rem;
@@ -865,14 +867,31 @@ body {
     }
 }
 
-/* Base styles for main navigation links */
+
+/* Base styles for main navigation links > 1200 px DESKTOP*/
+/* Base Navigation Setup */
+/* Base styles for main navigation */
+
+  /* Style for submenu items */
+  
+  /* font of level 1 elements */
+  .main-nav ul li a{
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 1rem;  /* 16px base */
+   font-weight: 600;
+   color: white;
+      }
+
 .main-nav ul {
     list-style: none;
     display: flex;
     gap: var(--space-lg);
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
   
-  /* Ensure parent li is positioned relatively */
   .main-nav ul li {
     position: relative;
   }
@@ -881,50 +900,82 @@ body {
   .main-nav ul ul {
     display: none;
     position: absolute;
-    background-color: var(--color-white); /* Use white background */
+    background-color: #ffffff;
     padding: 0.5rem 0;
     margin-top: 0.5rem;
     border-radius: 3px;
     min-width: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     z-index: 100;
   }
   
-  /* Show the submenu on hover (or focus for accessibility) */
+  /* Show dropdown on hover or focus */
   .main-nav ul li:hover > ul,
   .main-nav ul li:focus-within > ul {
     display: block;
   }
   
   /* Style for submenu items */
-  .main-nav ul ul li {
-    margin: 0;
-  }
-  
   .main-nav ul ul li a {
     display: block;
-    padding: 0.5rem 1rem;
-    color: var(--white);
-    text-decoration: none;
     white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    padding: 0.5rem 1rem;
+    color: navy;
   }
   
   .main-nav ul ul li a:hover {
     background-color: var(--red);
+    color: var(--color-white);
   }
   
-  /* Level 1 Navigation: Natural case, bold, white */
+  /* Level 1 Navigation: Bold, natural case, white text */
   .nav-level-1 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1rem; /* 16px base */
-    font-weight: 700;
-    color: var(--color-white);
-    text-transform: none; /* Natural capitalization */
+    font-size: 0.8rem;  /* 16px base */
+    font-weight: 300;
+    color: #ffffff;
+    text-transform: none;
+    text-decoration: none;
     padding: 0.5rem 0.75rem;
+    position: relative;
+  }
+  
+  /* Level 2 Navigation: Bold and uppercase if they have subitems, always navy blue */
+  .nav-level-2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #001e5b; /* Changed from white to navy */
+    padding: 0.5rem 0.75rem;
+    text-transform: none; /* default natural case */
   }
 
-  /* Position Level 3 submenus to appear to the right of level 2 */
-.main-nav ul ul ul {
+  .main-nav ul ul li a:hover {
+    color: #001e5b; 
+    background-color: #f3f4f8;
+    border-left: #ff163b solid 0.2rem;
+  }
+  
+  /* For level 2 items that have submenus, enforce uppercase */
+  .nav-level-2.has-submenu {
+    text-transform: uppercase;
+    /* color remains navy */
+  }
+  
+  /* Level 3 Navigation: Uppercase, normal weight, navy blue */
+  .nav-level-3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400; /* normal weight */
+    color: #001e5b
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Position Level 3 submenus to appear to the right of their parent Level 2 item */
+  .main-nav ul ul ul {
     left: 100%;
     top: 0;
     margin-top: 0;
