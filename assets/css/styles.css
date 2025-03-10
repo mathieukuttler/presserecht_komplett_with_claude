@@ -85,26 +85,28 @@ body {
     margin-left:0px;
   }
   .site-logo {
-    height: 1.5rem;
+    height: 2rem;
     margin-top: 0.6rem;
     margin-left:0px;
+    margin-right: 1rem;
+    height: 60px; /* Increased from 60px to 80px */
   }
 
   .search-button {
-    background-color: var(--white);
-    color: var(--dark-blue);
-    border: none;
+    background-color: var(--color-navy);
+    color: white;
+    border: solid white;
     padding: 0.5rem 1rem;
     cursor: pointer;
     font-weight: 600;
-    border-radius: 3px;
+    border-radius: 1.5rem;
   }
 /* The text box with red left border */
 .header-text-box {
     border-left: 0.22rem solid var(--color-red);
     color: var(--color-white);
     padding-left: 1rem;
-    max-width: 50%; 
+    max-width: 65%; 
     
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -382,11 +384,15 @@ body {
     left: calc((100% - 1200px)/2 + var(--space-sm));
 }
 
-.logo {
-    max-height: 80px; /* Increased from 60px to 80px */
-}
+
 
 /* Navigation */
+
+.main-nav {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
 .main-nav ul {
     display: flex;
     gap: var(--space-lg); /* Increased spacing between nav items */
@@ -412,20 +418,38 @@ body {
     color: var(--color-red);
 }
 
+/* Remove any existing animated bottom border */
 .main-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px; /* Increased from 2px to 3px */
-    bottom: -3px; /* Moved slightly down */
-    left: 0;
-    background-color: var(--color-red);
-    transition: width 0.3s ease;
+    content: none;
 }
 
 .main-nav a:hover::after,
 .main-nav a.active::after {
     width: 100%;
+}
+
+/* For the current (active) top-level navigation item */
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    height: 3px;  /* Thickness of the red border */
+    background-color: var(--red);
+    transition: none;
+}
+
+/* For parent navigation items that have their submenu open */
+.main-nav li.open > a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--red);
+    transition: none;
 }
 
 /* Mobile Navigation Toggle */
@@ -841,23 +865,29 @@ body {
     }
 }
 
-
-/* Dropdown Menu: Hide all submenus by default */
-.main-nav ul ul {
-    display: none;
-    position: absolute;
-    background-color: var(--dark-blue);
-    padding: 0.5rem 0;
+/* Base styles for main navigation links */
+.main-nav ul {
     list-style: none;
-    margin-top: 0.5rem;
-    border-radius: 3px;
-    min-width: 150px;
-    z-index: 100;
+    display: flex;
+    gap: var(--space-lg);
   }
   
   /* Ensure parent li is positioned relatively */
   .main-nav ul li {
     position: relative;
+  }
+  
+  /* Dropdown Menu: Hide all submenus by default */
+  .main-nav ul ul {
+    display: none;
+    position: absolute;
+    background-color: var(--color-white); /* Use white background */
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
   }
   
   /* Show the submenu on hover (or focus for accessibility) */
@@ -882,37 +912,6 @@ body {
   .main-nav ul ul li a:hover {
     background-color: var(--red);
   }
-
-  /* Base styles for main navigation links */
-/* Base styles for main navigation (if not already defined) */
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: var(--space-lg); /* Uses your existing spacing variable */
-  }
- /* Hide dropdown menus by default */
-.main-nav ul ul {
-    display: none;
-    position: absolute;
-    background-color: var(--color-white);
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
-    border-radius: 3px;
-    min-width: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
-  
-  /* Position parent li relative to correctly position absolute dropdowns */
-  .main-nav ul li {
-    position: relative;
-  }
-  
-  /* Show dropdown on hover or when focused (for accessibility) */
-  .main-nav ul li:hover > ul,
-  .main-nav ul li:focus-within > ul {
-    display: block;
-  }
   
   /* Level 1 Navigation: Natural case, bold, white */
   .nav-level-1 {
@@ -920,6 +919,13 @@ body {
     font-size: 1rem; /* 16px base */
     font-weight: 700;
     color: var(--color-white);
-    text-transform: none; /* Use natural capitalization */
+    text-transform: none; /* Natural capitalization */
     padding: 0.5rem 0.75rem;
+  }
+
+  /* Position Level 3 submenus to appear to the right of level 2 */
+.main-nav ul ul ul {
+    left: 100%;
+    top: 0;
+    margin-top: 0;
   }
